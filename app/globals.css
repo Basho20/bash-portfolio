@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   DESIGN TOKENS
+───────────────────────────────────────── */
+:root {
+  --ivory:        #FAF7F2;
+  --parchment:    #F2EDE4;
+  --linen:        #E8E0D4;
+  --obsidian:     #141210;
+  --charcoal:     #2C2820;
+  --slate:        #6B6358;
+  --ash:          #A89F94;
+  --copper:       #B87333;
+  --copper-light: #D4916A;
+  --copper-dark:  #8A5520;
+  --moss:         #4A5C45;
+}
+
+/* ─────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ivory);
+  color: var(--obsidian);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────
+   TAILWIND CUSTOM COLORS (extend fallback)
+───────────────────────────────────────── */
+/* Used as bg-ivory, text-obsidian etc via tailwind.config */
+
+/* ─────────────────────────────────────────
+   SCROLLBAR
+───────────────────────────────────────── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: var(--copper); }
+
+/* ─────────────────────────────────────────
+   SELECTION
+───────────────────────────────────────── */
+::selection { background: var(--copper); color: var(--ivory); }
+
+/* ─────────────────────────────────────────
+   PAPER GRAIN OVERLAY
+───────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.018;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px;
+}
+
+/* ─────────────────────────────────────────
+   FONT HELPERS
+───────────────────────────────────────── */
+.f-display { font-family: var(--font-fraunces), Georgia, serif; }
+.f-body    { font-family: var(--font-jakarta), system-ui, sans-serif; }
+.f-code    { font-family: var(--font-fira), monospace; }
+
+/* ─────────────────────────────────────────
+   SECTION DIVIDER
+───────────────────────────────────────── */
+.divider { border-bottom: 1px solid rgba(20,18,16,0.08); }
+
+/* ─────────────────────────────────────────
+   EYEBROW LABEL
+───────────────────────────────────────── */
+.eyebrow {
+  font-family: var(--font-fira), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--copper);
+}
+
+/* ─────────────────────────────────────────
+   BUTTONS
+───────────────────────────────────────── */
+
+/* Solid copper → ivory fill */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: var(--copper);
+  color: var(--ivory);
+  font-family: var(--font-fira), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.3s, box-shadow 0.3s;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--copper-dark);
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.btn-primary:hover::before { transform: translateY(0); }
+.btn-primary:hover { box-shadow: 0 8px 24px rgba(184,115,51,0.25); }
+.btn-primary span { position: relative; z-index: 1; }
+.btn-primary svg { position: relative; z-index: 1; }
+
+/* Ghost outline */
+.btn-ghost {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  border: 1px solid rgba(20,18,16,0.18);
+  color: var(--charcoal);
+  font-family: var(--font-fira), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  transition: color 0.3s, border-color 0.3s;
+}
+.btn-ghost::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--obsidian);
+  transform: translateY(101%);
+  transition: transform 0.35s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.btn-ghost:hover::before { transform: translateY(0); }
+.btn-ghost:hover { color: var(--ivory); border-color: var(--obsidian); }
+.btn-ghost span { position: relative; z-index: 1; }
+.btn-ghost svg  { position: relative; z-index: 1; }
+
+/* ─────────────────────────────────────────
+   LINK UNDERLINE
+───────────────────────────────────────── */
+.cu-link {
+  position: relative;
+  text-decoration: none;
+}
+.cu-link::after {
+  content: '';
+  position: absolute;
+  left: 0; bottom: -1px;
+  width: 0; height: 1px;
+  background: var(--copper);
+  transition: width 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.cu-link:hover::after { width: 100%; }
+
+/* ─────────────────────────────────────────
+   CARD — top ruled
+───────────────────────────────────────── */
+.card-top {
+  border-top: 2px solid var(--obsidian);
+  transition: border-top-color 0.3s ease;
+}
+.card-top:hover { border-top-color: var(--copper); }
+
+/* ─────────────────────────────────────────
+   SKILL CHIP
+───────────────────────────────────────── */
+.skill-chip {
+  border: 1px solid rgba(20,18,16,0.1);
+  transition: border-color 0.25s, background 0.25s, transform 0.25s;
+}
+.skill-chip:hover {
+  border-color: var(--copper);
+  background: rgba(184,115,51,0.04);
+  transform: translateY(-2px);
+}
+
+/* ─────────────────────────────────────────
+   TAG BADGE
+───────────────────────────────────────── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-fira), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid rgba(20,18,16,0.12);
+  color: var(--slate);
+  transition: border-color 0.25s, color 0.25s;
+}
+.tag:hover { border-color: var(--copper); color: var(--copper); }
+
+/* ─────────────────────────────────────────
+   PROJECT ROW HOVER
+───────────────────────────────────────── */
+.project-row {
+  transition: background 0.22s, padding-left 0.3s cubic-bezier(0.77,0,0.175,1);
+  padding-left: 0.5rem;
+}
+.project-row:hover {
+  background: var(--parchment);
+  padding-left: 1.5rem;
+}
+
+/* ─────────────────────────────────────────
+   FORM FIELD
+───────────────────────────────────────── */
+.field {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(20,18,16,0.15);
+  padding: 0.75rem 0;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: var(--obsidian);
+  outline: none;
+  transition: border-color 0.3s;
+}
+.field::placeholder { color: var(--ash); }
+.field:focus { border-bottom-color: var(--copper); }
+select.field { cursor: pointer; }
+
+/* ─────────────────────────────────────────
+   MARQUEE
+───────────────────────────────────────── */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scroll-left 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ─────────────────────────────────────────
+   FADE-UP (CSS stagger, no JS)
+───────────────────────────────────────── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  opacity: 0;
+  animation: fade-up 0.75s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.22s; }
+.d3 { animation-delay: 0.36s; }
+.d4 { animation-delay: 0.50s; }
+.d5 { animation-delay: 0.65s; }
+.d6 { animation-delay: 0.80s; }
+
+/* ─────────────────────────────────────────
+   STAT NUMBER
+───────────────────────────────────────── */
+.stat-num {
+  font-family: var(--font-fraunces), Georgia, serif;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1;
+}
+
+/* ─────────────────────────────────────────
+   DIAGONAL ACCENT PATTERN
+───────────────────────────────────────── */
+.hatch {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 5px,
+    rgba(184,115,51,0.05) 5px,
+    rgba(184,115,51,0.05) 6px
+  );
+}
+
+/* ─────────────────────────────────────────
+   COPPER ORNAMENT
+───────────────────────────────────────── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.ornament::before,
+.ornament::after {
+  content: '';
+  height: 1px;
+  background: var(--copper);
+  flex: 0 0 28px;
+}
+.ornament::after { flex: 0 0 8px; }
+
+/* ─────────────────────────────────────────
+   TIMELINE DOT
+───────────────────────────────────────── */
+.tl-dot {
+  width: 10px; height: 10px;
+  border: 2px solid rgba(20,18,16,0.2);
+  background: var(--ivory);
+  transition: border-color 0.3s, background 0.3s;
+}
+.tl-dot.active { background: var(--copper); border-color: var(--copper); }
+.group:hover .tl-dot { border-color: var(--copper); }
+
+/* ─────────────────────────────────────────
+   PHOTO FRAME
+───────────────────────────────────────── */
+.photo-frame {
+  position: relative;
+}
+.photo-frame::before {
+  content: '';
+  position: absolute;
+  top: 10px; left: 10px; right: -10px; bottom: -10px;
+  border: 1px solid rgba(184,115,51,0.25);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ─────────────────────────────────────────
+   SECTION HEADER
+───────────────────────────────────────── */
+.section-header {
+  padding-top: 5rem;
+  padding-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(20,18,16,0.08);
+  margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────
+   DARK BAND
+───────────────────────────────────────── */
+.dark-band {
+  background: var(--obsidian);
+  color: var(--ivory);
+}
+.dark-band .eyebrow { color: var(--copper-light); }
