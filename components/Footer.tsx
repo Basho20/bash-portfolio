@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { FiGithub, FiLinkedin, FiTwitter, FiArrowUp } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiTwitter, FiArrowUp, FiInstagram } from 'react-icons/fi'
 
 export default function Footer() {
   return (
@@ -28,11 +28,12 @@ export default function Footer() {
           {/* Socials */}
           <div className="flex items-center gap-3">
             {[
-              { icon: <FiGithub size={15} />, href: '#' },
-              { icon: <FiLinkedin size={15} />, href: '#' },
-              { icon: <FiTwitter size={15} />, href: '#' },
+              { icon: <FiGithub size={15} />, href: 'https://github.com/Basho20' },
+              { icon: <FiLinkedin size={15} />, href: 'https://www.linkedin.com/in/eng-bash-mohamed-829bb6346' },
+              { icon: <FiTwitter size={15} />, href: 'https://x.com/THE_Eng_M0bash' },
+              { icon: <FiInstagram size={15} />, href: 'https://www.instagram.com/mobash004'}
             ].map((s, i) => (
-              <a key={i} href={s.href}
+              <a key={i} href={s.href} target='_blank'
                 className="w-9 h-9 border border-ivory/10 flex items-center justify-center text-ivory/30 hover:border-copper hover:text-copper transition-all duration-300">
                 {s.icon}
               </a>
