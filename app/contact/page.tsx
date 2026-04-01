@@ -1,23 +1,29 @@
 'use client'
+import { sendMail } from '@/lib/mailSend'
 import { useState } from 'react'
 import { FiMail, FiMapPin, FiPhone, FiArrowUpRight } from 'react-icons/fi'
 
 const contactInfo = [
-  { icon: FiPhone, label: 'Phone',    value: '(+254) 721 876 900',       href: 'tel:+254721876900' },
-  { icon: FiMail,  label: 'Email',    value: 'mohamedbash19574@gmail.com', href: 'mailto:mohamedbash19574@gmail.com' },
-  { icon: FiMapPin,label: 'Location', value: 'Kirinyaga University, Kenya', href: '#' },
+  { icon: FiPhone, label: 'Phone', value: '(+254) 721 876 900', href: 'tel:+254721876900' },
+  { icon: FiMail, label: 'Email', value: 'mohamedbash19574@gmail.com', href: 'mailto:mohamedbash19574@gmail.com' },
+  { icon: FiMapPin, label: 'Location', value: 'Kirinyaga University, Kenya', href: '#' },
 ]
 
 export default function Contact() {
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setSending(true)
-    await new Promise(r => setTimeout(r, 1200))
+    const formdata = new FormData(e.currentTarget)
+    const result = await sendMail(formdata)
+    if (result.success) {
+      setSent(true)
+    } else {
+      setSent(false)
+    }
     setSending(false)
-    setSent(true)
   }
 
   return (
@@ -101,12 +107,12 @@ export default function Contact() {
                 {/* Name */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {[
-                    { label: 'First name', placeholder: 'James', type: 'text', req: true },
-                    { label: 'Last name',  placeholder: 'Mwangi', type: 'text', req: true },
+                    { label: 'First name', placeholder: 'James', name: 'first-name', type: 'text', req: true },
+                    { label: 'Last name', placeholder: 'Mwangi',name: 'last-name' , type: 'text', req: true },
                   ].map(f => (
                     <div key={f.label}>
                       <label className="f-code text-[8px] tracking-wide2 text-slate uppercase block mb-1">{f.label} {f.req && '*'}</label>
-                      <input type={f.type} placeholder={f.placeholder} required={f.req} className="field" />
+                      <input type={f.type} name={f.name} placeholder={f.placeholder} required={f.req} className="field" />
                     </div>
                   ))}
                 </div>
@@ -114,12 +120,12 @@ export default function Contact() {
                 {/* Email + phone */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {[
-                    { label: 'Email',   placeholder: 'james@gmail.com', type: 'email', req: true },
-                    { label: 'Phone',   placeholder: '+254 700 000 000', type: 'tel',   req: false },
+                    { label: 'Email', name: 'email', placeholder: 'james@gmail.com', type: 'email', req: true },
+                    { label: 'Phone', name: 'phone', placeholder: '+254 700 000 000', type: 'tel', req: false },
                   ].map(f => (
                     <div key={f.label}>
                       <label className="f-code text-[8px] tracking-wide2 text-slate uppercase block mb-1">{f.label} {f.req && '*'}</label>
-                      <input type={f.type} placeholder={f.placeholder} required={f.req} className="field" />
+                      <input type={f.type} placeholder={f.placeholder} name={f.name} required={f.req} className="field" />
                     </div>
                   ))}
                 </div>
@@ -127,7 +133,7 @@ export default function Contact() {
                 {/* Service */}
                 <div>
                   <label className="f-code text-[8px] tracking-wide2 text-slate uppercase block mb-1">Service needed</label>
-                  <select className="field" style={{ color: 'var(--slate)' }}>
+                  <select name="service" className="field" style={{ color: 'var(--slate)' }}>
                     <option value="">Select a service...</option>
                     <option value="web">Web Development</option>
                     <option value="photo">Photography</option>
@@ -140,7 +146,7 @@ export default function Contact() {
                 <div>
                   <label className="f-code text-[8px] tracking-wide2 text-slate uppercase block mb-1">Message *</label>
                   <textarea
-                    placeholder="Tell me about your project — what you want to build, the timeline, and any requirements..."
+                    placeholder="Tell me about your project — what you want to build, the timeline, and any requirements..." name='message'
                     required rows={5} className="field resize-none"
                   />
                 </div>
