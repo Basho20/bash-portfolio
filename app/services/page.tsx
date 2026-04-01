@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { FiCode, FiCamera, FiArrowUpRight } from 'react-icons/fi'
 
 const services = [
