@@ -70,7 +70,7 @@ export default function About() {
             <span className="w-7 h-px bg-copper" />
             <span className="eyebrow">Background</span>
           </div>
-          <h1 className="f-display font-thin text-[clamp(52px,8.5vw,108px)] leading-none text-obsidian tracking-tight">
+          <h1 className="f-display font-thin text-[clamp(52px,8.5vw,108px)] leading-none text-ivory tracking-tight">
             About{' '}
             <em className="font-black italic text-copper">Me.</em>
           </h1>
@@ -98,7 +98,7 @@ export default function About() {
 
           {/* Bio text */}
           <div className="xl:col-span-8 order-2 xl:order-1 flex flex-col gap-6">
-            <p className="f-display text-2xl xl:text-3xl font-light leading-relaxed text-obsidian">
+            <p className="f-display text-2xl xl:text-3xl font-light leading-relaxed text-ivory">
               Hi — I'm Mohamed Bash, a software developer from{' '}
               <em className="italic text-copper">Nairobi, Kenya</em>.
             </p>
@@ -176,7 +176,7 @@ export default function About() {
                   {/* Content */}
                   <div className="flex-1">
                     <div className="flex items-start justify-between gap-4 mb-1">
-                      <h3 className="f-display text-xl xl:text-2xl font-semibold text-obsidian group-hover:text-copper transition-colors duration-300">
+                      <h3 className="f-display text-xl xl:text-2xl font-semibold text-ivory group-hover:text-copper transition-colors duration-300">
                         {item.title}
                       </h3>
                       <span className="flex-shrink-0 f-code text-[8px] tracking-wide uppercase px-2 py-0.5 border border-obsidian/10 text-slate">
@@ -194,7 +194,7 @@ export default function About() {
 
         {/* ─── CTA ─── */}
         <div className="mt-4 py-14 border-t border-obsidian/[0.07] flex flex-col xl:flex-row items-start xl:items-center justify-between gap-8">
-          <h2 className="f-display font-light text-[clamp(30px,4vw,52px)] leading-tight text-obsidian">
+          <h2 className="f-display font-light text-[clamp(30px,4vw,52px)] leading-tight text-ivory">
             Want to work{' '}
             <em className="italic font-black text-copper">together?</em>
           </h2>

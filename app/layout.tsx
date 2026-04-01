@@ -32,7 +32,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" data-scroll-behavior="smooth">
       <body
-        className={`${fraunces.variable} ${jakarta.variable} ${firaCode.variable} bg-ivory text-obsidian antialiased`}
+        className={`${fraunces.variable} ${jakarta.variable} ${firaCode.variable} bg-obsidian text-ivory antialiased`}
       >
         <Navbar />
         <main className="pt-[68px] min-h-screen">{children}</main>

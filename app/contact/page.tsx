@@ -31,7 +31,7 @@ export default function Contact() {
             <span className="eyebrow">Contact</span>
           </div>
           <div className="flex items-end justify-between gap-8">
-            <h1 className="f-display font-thin text-[clamp(52px,8.5vw,108px)] leading-none text-obsidian tracking-tight">
+            <h1 className="f-display font-thin text-[clamp(52px,8.5vw,108px)] leading-none text-ivory tracking-tight">
               Get In{' '}
               <em className="font-black italic text-copper">Touch.</em>
             </h1>
@@ -56,13 +56,13 @@ export default function Contact() {
             <div className="flex flex-col divide-y divide-obsidian/[0.06]">
               {contactInfo.map((item, i) => (
                 <a key={i} href={item.href}
-                  className="group flex items-start gap-4 py-5 -mx-2 px-2 hover:bg-parchment transition-colors duration-200">
+                  className="group flex items-start gap-4 py-5 -mx-2 px-2 hover:bg-charcoal transition-colors duration-200">
                   <div className="w-9 h-9 border border-obsidian/10 flex items-center justify-center flex-shrink-0 group-hover:bg-copper group-hover:border-copper transition-all duration-300">
                     <item.icon className="text-sm text-ash group-hover:text-ivory transition-colors duration-300" />
                   </div>
                   <div>
                     <span className="f-code text-[8px] tracking-wide2 text-ash uppercase block mb-1">{item.label}</span>
-                    <span className="f-body text-sm text-obsidian group-hover:text-copper transition-colors duration-300 break-all">
+                    <span className="f-body text-sm text-ivory group-hover:text-copper transition-colors duration-300 break-all">
                       {item.value}
                     </span>
                   </div>
@@ -78,7 +78,7 @@ export default function Contact() {
                 <div className="w-16 h-16 border-2 border-copper flex items-center justify-center">
                   <span className="text-copper text-2xl">✓</span>
                 </div>
-                <h3 className="f-display text-4xl font-semibold text-obsidian">
+                <h3 className="f-display text-4xl font-semibold text-ivory">
                   Message received.
                 </h3>
                 <p className="f-body text-sm text-slate max-w-[280px] leading-relaxed">
@@ -92,7 +92,7 @@ export default function Contact() {
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-7">
                 <div>
-                  <h2 className="f-display text-3xl xl:text-4xl font-light text-obsidian mb-2">
+                  <h2 className="f-display text-3xl xl:text-4xl font-light text-ivory mb-2">
                     Start a conversation
                   </h2>
                   <div className="w-10 h-px bg-copper" />

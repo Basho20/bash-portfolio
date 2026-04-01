@@ -228,7 +228,7 @@ body::before {
   padding: 0.75rem 0;
   font-family: var(--font-jakarta), system-ui, sans-serif;
   font-size: 0.9rem;
-  color: var(--obsidian);
+  color: var(--ivory);
   outline: none;
   transition: border-color 0.3s;
 }

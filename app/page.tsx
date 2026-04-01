@@ -21,13 +21,13 @@ export default function Home() {
 
               {/* Headline */}
               <h1 className="fade-up d2 mb-0 leading-none">
-                <span className="block f-display font-thin text-[clamp(60px,9.5vw,130px)] text-obsidian tracking-tight">
+                <span className="block f-display font-thin text-[clamp(60px,9.5vw,130px)] text-ivory tracking-tight">
                   Building
                 </span>
                 <span className="block f-display font-black italic text-[clamp(60px,9.5vw,130px)] text-copper tracking-tight">
                   Digital
                 </span>
-                <span className="block f-display font-thin text-[clamp(60px,9.5vw,130px)] text-obsidian tracking-tight">
+                <span className="block f-display font-thin text-[clamp(60px,9.5vw,130px)] text-ivory tracking-tight">
                   Products.
                 </span>
               </h1>
@@ -51,7 +51,7 @@ export default function Home() {
               <div className="flex flex-col items-center xl:items-end gap-6">
 
                 {/* Photo with ornate frame */}
-                <div className="photo-frame relative z-10">
+                <div className="relative z-10">
                   <div className="w-[180px] h-[180px] xl:w-[200px] xl:h-[200px] rounded-full overflow-hidden border-[3px] border-ivory shadow-[0_0_0_1px_rgba(184,115,51,0.25),0_20px_48px_rgba(20,18,16,0.12)] relative">
                     <Image
                       src="/images/mobash.jpeg"
@@ -61,23 +61,21 @@ export default function Home() {
                       priority
                     />
                   </div>
-                  {/* Status dot */}
-                  <span className="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-green-500 border-2 border-ivory shadow-md" />
                 </div>
 
                 {/* Name plate */}
                 <div className="text-center xl:text-right">
-                  <p className="f-display font-semibold text-obsidian text-lg">Mohamed Bash</p>
+                  <p className="f-display font-semibold text-ivory text-lg">Mohamed Bash</p>
                   <p className="f-code text-[9px] tracking-wide2 text-ash uppercase mt-0.5">
                     Software Developer
                   </p>
                 </div>
 
                 {/* Availability */}
-                <div className="border border-obsidian/10 bg-parchment/60 px-5 py-4 text-right w-full">
+                <div className="border border-obsidian/10 bg-ash/60 px-5 py-4 text-right w-full">
                   <div className="flex items-center justify-end gap-2 mb-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    <span className="f-code text-[8px] tracking-wide2 text-slate uppercase">Available</span>
+                    <span className="f-code text-[8px] tracking-wide2 uppercase">Available</span>
                   </div>
                   <p className="f-body text-xs text-ash">Open to freelance & full-time</p>
                 </div>
@@ -148,7 +146,7 @@ export default function Home() {
       <section className="py-28 border-b border-obsidian/[0.07]">
         <div className="max-w-6xl mx-auto px-6 xl:px-10 text-center">
           <p className="eyebrow mb-6 block">Ready to build?</p>
-          <h2 className="f-display font-thin text-[clamp(44px,7vw,96px)] leading-none text-obsidian mb-2 tracking-tight">
+          <h2 className="f-display font-thin text-[clamp(44px,7vw,96px)] leading-none text-ivory mb-2 tracking-tight">
             Let's make something
           </h2>
           <h2 className="f-display font-black italic text-[clamp(44px,7vw,96px)] leading-none text-copper mb-14 tracking-tight">

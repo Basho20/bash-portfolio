@@ -41,7 +41,7 @@ export default function Services() {
             <span className="eyebrow">Capabilities</span>
           </div>
           <div className="flex items-end justify-between gap-8">
-            <h1 className="f-display font-thin text-[clamp(52px,8.5vw,108px)] leading-none text-obsidian tracking-tight">
+            <h1 className="f-display font-thin text-[clamp(52px,8.5vw,108px)] leading-none text-ivory tracking-tight">
               What I{' '}
               <em className="font-black italic text-copper">Offer.</em>
             </h1>
@@ -66,7 +66,7 @@ export default function Services() {
               {/* Line accent */}
               <div className="h-px w-8 group-hover:w-16 bg-copper/40 transition-all duration-500 mb-7" />
 
-              <h2 className="f-display text-[clamp(26px,3.5vw,40px)] font-semibold leading-tight text-obsidian mb-2 group-hover:text-copper transition-colors duration-300">
+              <h2 className="f-display text-[clamp(26px,3.5vw,40px)] font-semibold leading-tight text-ivory mb-2 group-hover:text-copper transition-colors duration-300">
                 {s.title}
               </h2>
               <p className="f-code text-[9px] tracking-wide2 text-slate uppercase mb-6">{s.tagline}</p>
@@ -99,7 +99,7 @@ export default function Services() {
               <div key={i} className="group px-8 xl:px-10 py-10 hover:bg-parchment transition-colors duration-300">
                 <span className="f-code text-[9px] tracking-wide2 text-copper block mb-5">{p.num}</span>
                 <div className="w-5 h-px bg-copper/30 group-hover:w-10 transition-all duration-500 mb-6" />
-                <h3 className="f-display text-2xl font-semibold text-obsidian mb-3 group-hover:text-copper transition-colors duration-300">
+                <h3 className="f-display text-2xl font-semibold text-ivory mb-3 group-hover:text-copper transition-colors duration-300">
                   {p.title}
                 </h3>
                 <p className="f-body text-xs text-slate leading-relaxed">{p.desc}</p>
