@@ -22,8 +22,15 @@ const skills = [
 const timeline = [
   {
     year: '2026',
-    title: 'Certificate in Digital Marketing',
+    title: 'Diploma in Project Planning and Management',
     org: 'Machakos Institute of Technology',
+    desc: 'Comprehensive gaining of practical skills in planning, executing and managing projects effectively',
+    type: 'education (ongoing)'
+  },
+  {
+    year: '2026',
+    title: 'Certificate in Digital Marketing',
+    org: 'International Youth Fellowship - Kenya',
     desc: 'Comprehensive digital marketing covering SEO, social media strategy, and content creation.',
     type: 'education',
   },
@@ -39,7 +46,7 @@ const timeline = [
     title: 'BSc Software Engineering',
     org: 'Kirinyaga University',
     desc: 'Formal university study: algorithms, data structures, system design, and software engineering principles.',
-    type: 'education',
+    type: 'education (ongoing)',
   },
 ]
 
