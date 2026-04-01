@@ -1,4 +1,4 @@
-# Bethuel Maluti — Portfolio v2
+# Mohamed Bash - Portfolio
 
 A clean, editorial-style Next.js portfolio. **No GSAP, no JavaScript animations** — all motion is pure CSS transitions and keyframes.
 
